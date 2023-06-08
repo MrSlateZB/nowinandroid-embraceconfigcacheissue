@@ -24,6 +24,7 @@ plugins {
     id("jacoco")
     id("nowinandroid.android.application.firebase")
     id("com.google.android.gms.oss-licenses-plugin")
+    id("embrace-swazzler")
 }
 
 android {
@@ -128,5 +129,11 @@ configurations.configureEach {
         force(libs.junit4)
         // Temporary workaround for https://issuetracker.google.com/174733673
         force("org.objenesis:objenesis:2.6")
+    }
+}
+
+swazzler {
+    variantFilter {
+        setSwazzlingEnabled(false)
     }
 }
